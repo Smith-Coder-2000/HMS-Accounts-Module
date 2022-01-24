@@ -19,7 +19,7 @@ function display() {
     var table =
         `<thead class="thead-dark"><tr><th>bill_id</th><th>Patient_name</th><th>Patient_type</th>
             <th>Bill_amount</th><th>Status</th>
-            <th>Action</th>
+            <th>Action</th><th>edit</th>
         </tr></thead>`;
         
     var x = xmlDoc.getElementsByTagName("patient");
@@ -38,7 +38,8 @@ function display() {
             .childNodes[0].nodeValue + "</td><td>" +
             x[i].getElementsByTagName("status")[0]
             .childNodes[0].nodeValue + "</td><td>"+
-            `<a onclick='javascript:remove(${i})'><i class='fas fa-trash'></i></a></td></tr>`;
+            `<a onclick='javascript:remove(${i})'><i class='fas fa-trash'></i></a></td><td>`+
+            `<a onclick='javascript:change(${i})' data-toggle="modal" data-target="#new2"><i class="fas fa-user-edit"></i></a></td></tr>`;
     }
     // Print the xml data in table form
     document.getElementById("id").innerHTML = table;
@@ -53,10 +54,10 @@ function remove(node){
 function show(xmlDoc){
     var i;
     var table =
-    `<thead class="thead-dark"><tr><th>bill_id</th><th>Patient_name</th><th>Patient_type</th>
-    <th>Bill_amount</th><th>Status</th>
-    <th>Action</th>
-    </tr></thead>`;
+        `<thead class="thead-dark"><tr><th>bill_id</th><th>Patient_name</th><th>Patient_type</th>
+            <th>Bill_amount</th><th>Status</th>
+            <th>Action</th><th>edit</th>
+        </tr></thead>`;
         
     var x = xmlDoc.getElementsByTagName("patient");
 
@@ -73,7 +74,8 @@ function show(xmlDoc){
             .childNodes[0].nodeValue + "</td><td>" +
             x[i].getElementsByTagName("status")[0]
             .childNodes[0].nodeValue + "</td><td>"+
-            `<a onclick='javascript:remove(${i})'><i class='fas fa-trash'></i></a></td></tr>`;
+            `<a onclick='javascript:remove(${i})'><i class='fas fa-trash'></i></a></td><td>`+
+            `<a onclick='javascript:change(${i})' data-toggle="modal" data-target="#new2"><i class="fas fa-user-edit"></i></a></td></tr>`;
     }
     // Print the xml data in table form
     document.getElementById("id").innerHTML = table;
@@ -112,7 +114,29 @@ function add(){
 
     var y = xmlDoc.getElementsByTagName("hospital");
     y[0].appendChild(patient);
-
     show(xmlDoc);
-    $('#new').modal('hide')
+    
+}
+
+var node2;
+function change(node1){
+    node2=node1;
+    y=xmlDoc.getElementsByTagName("patient")[node1];
+    console.log(y.getElementsByTagName("Name")[0].childNodes[0].nodeValue);
+    document.getElementById('bill_id1').value=y.getElementsByTagName("bill_id")[0].childNodes[0].nodeValue;
+    document.getElementById('Name1').value=y.getElementsByTagName("Name")[0].childNodes[0].nodeValue;
+    document.getElementById('type1').value=y.getElementsByTagName("type")[0].childNodes[0].nodeValue;
+    document.getElementById('bill1').value=y.getElementsByTagName("bill_amount")[0].childNodes[0].nodeValue;
+    document.getElementById('status1').value=y.getElementsByTagName("status")[0].childNodes[0].nodeValue;
+}
+
+function replace(){
+    y=xmlDoc.getElementsByTagName("patient")[node2];
+    y.getElementsByTagName("bill_id")[0].childNodes[0].nodeValue=document.getElementById('bill_id1').value;
+    y.getElementsByTagName("Name")[0].childNodes[0].nodeValue=document.getElementById('Name1').value;
+    y.getElementsByTagName("type")[0].childNodes[0].nodeValue=document.getElementById('type1').value;
+    y.getElementsByTagName("bill_amount")[0].childNodes[0].nodeValue=document.getElementById('bill1').value;
+    y.getElementsByTagName("status")[0].childNodes[0].nodeValue=document.getElementById('status1').value;
+    show(xmlDoc);
+    $('#new2').modal('hide'); 
 }

@@ -25,6 +25,9 @@
             <li class="nav-item">
               <a type="button" class="nav-link" data-toggle="modal" data-target="#new">Add new patient</a>
             </li>
+            <li class="nav-item">
+              <a type="button" class="nav-link" href="/index.html">Log Out</a>
+            </li>
           </ul>
         </div>
       </nav>
@@ -57,7 +60,46 @@
                         <label for="status">Status</label>
                         <input type="text" class="form-control" id="status" aria-describedby="emailHelp">
                     </div>
-                    <button type="submit" class="btn btn-primary" onclick="add()">Submit</button>
+                    <div class="form-group">
+                      <a type="button" class="btn btn-primary" onclick="add()">Submit</a>
+                    </div>
+                  </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="new2" tabindex="-1" aria-labelledby="new2" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="new">Enter patient details</h5>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="Name">bill id</label>
+                        <input type="text" class="form-control" id="bill_id1" aria-describedby="emailHelp">
+                      </div>
+                    <div class="form-group">
+                      <label for="Name">Patient Name</label>
+                      <input type="text" class="form-control" id="Name1" aria-describedby="emailHelp">
+                    </div>
+                    <div class="form-group">
+                        <label for="type">Patient type</label>
+                        <input type="text" class="form-control" id="type1" aria-describedby="emailHelp">
+                    </div>
+                    <div class="form-group">
+                        <label for="bill">Bill amount</label>
+                        <input type="text" class="form-control" id="bill1" aria-describedby="emailHelp">
+                    </div>
+                    <div class="form-group">
+                        <label for="status">Status</label>
+                        <input type="text" class="form-control" id="status1" aria-describedby="emailHelp">
+                    </div>
+                    <div class="form-group">
+                      <a type="button" class="btn btn-primary" onclick="replace()">Submit</a>
+                    </div>
                   </form>
             </div>
           </div>
