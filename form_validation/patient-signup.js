@@ -13,6 +13,7 @@ var span=document.getElementsByTagName('span');
         const regex2= /^[a-zA-Z]+$/
         const regex3 = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])([a-z])([a-zA-Z0-9!@#$%^&*])(.*[a-z])?$/;
         const isValidLength = /^.{8,16}$/;
+        const regex4=/^[0-9]{10}$/ ;
         //name validation
         if(Name.value.trim().length<3){
             $("#name").addClass("is-invalid")
@@ -47,7 +48,21 @@ var span=document.getElementsByTagName('span');
             $("#password2").removeClass("is-valid")
             span[4].innerText="invalid Password";
             span[4].className="invalid-feedback";
-            return false
+            return false                        
+        }
+        else if(!regex4.test(phno.value.trim())){
+            $("#phno").addClass("is-invalid")
+            $("#phno").removeClass("is-valid")
+            span[5].innerText="enter valid number";
+            span[5].className="invalid-feedback";
+            return false   
+        }
+        else if(address.value.trim().length<=8){
+            $("#address").addClass("is-invalid")
+            $("#address").removeClass("is-valid")
+            span[6].innerText="enter valid address";
+            span[6].className="invalid-feedback";
+            return false   
         }
         else{
             $("#name").addClass("is-valid")
@@ -58,6 +73,10 @@ var span=document.getElementsByTagName('span');
             $("#password").removeClass("is-invalid")
             $("#password2").addClass("is-valid")
             $("#password2").removeClass("is-invalid")
+            $("#phno").addClass("is-valid")
+            $("#phno").removeClass("is-invalid")
+            $("#address").addClass("is-valid")
+            $("#address").removeClass("is-invalid")
             return true
         }
 }
@@ -70,12 +89,14 @@ email.onkeyup=function()
 
                 $("#email").addClass("is-valid")
                 $("#email").removeClass("is-invalid")
-                span[2].innerText="looking good";
+                span[2].innerText="looks good";
+                span[2].className="valid-feedback";
         }
         else{
                 $("#email").addClass("is-invalid")
                 $("#email").removeClass("is-valid")
                 span[2].innerText="invalid email";
+                span[2].className="invalid-feedback";
         }
     }
 
@@ -85,16 +106,19 @@ Name.onkeyup=function(){
         $("#name").addClass("is-invalid")
         $("#name").removeClass("is-valid")
         span[1].innerText="length should be greater than two";
+        span[1].className="invalid-feedback";
     }
     else if(!regex2.test(Name.value.trim())){
         $("#name").addClass("is-invalid")
         $("#name").removeClass("is-valid")
         span[1].innerText="special characters are not allowed";
+        span[1].className="invalid-feedback";
     }
     else{
         $("#name").addClass("is-valid")
         $("#name").removeClass("is-invalid")
         span[1].innerText="looks good";
+        span[1].className="valid-feedback";
     }
 }
 
@@ -105,11 +129,13 @@ password.onkeyup=function(){
         $("#password").addClass("is-valid")
         $("#password").removeClass("is-invalid")
         span[3].innerText="looks good";
+        span[3].className="valid-feedback";
     }
     else{
         $("#password").addClass("is-invalid")
         $("#password").removeClass("is-valid")
         span[3].innerText="provide a strong password";
+        span[3].className="invalid-feedback";
     }
 }
 
@@ -118,11 +144,44 @@ conPassword.onkeyup=function(){
         $("#password2").addClass("is-valid")
         $("#password2").removeClass("is-invalid")
         span[4].innerText="looks good";
+        span[4].className="valid-feedback";
     }
     else{
         $("#password2").addClass("is-invalid")
         $("#password2").removeClass("is-valid")
         span[4].innerText="invalid Password";
+        span[4].className="invalid-feedback";
+    }
+}
+
+phno.onkeyup=function(){
+    const regex4=/^[0-9]{10}$/;
+    if(!regex4.test(phno.value.trim())){
+        $("#phno").addClass("is-invalid")
+        $("#phno").removeClass("is-valid")
+        span[5].innerText="enter valid number";
+        span[5].className="invalid-feedback"; 
+    }
+    else{
+        $("#phno").addClass("is-valid")
+        $("#phno").removeClass("is-invalid")
+        span[5].innerText="looks good";
+        span[5].className="valid-feedback";
+    }
+}
+
+address.onkeyup=function(){
+    if(address.value.trim().length<=8){
+        $("#address").addClass("is-invalid")
+        $("#address").removeClass("is-valid")
+        span[6].innerText="enter valid address";
+        span[6].className="invalid-feedback";  
+    }
+    else{
+        $("#address").addClass("is-valid")
+        $("#address").removeClass("is-invalid")
+        span[6].innerText="looks good";
+        span[6].className="valid-feedback";
     }
 }
 
@@ -133,5 +192,15 @@ function numlock(event)
     return false;
     else
     return true;
+}
+
+function alplock(event){
+    let code=event.which;
+    if(code>=65&&code<=90||code>=97&&code<=122){
+        return false;
+    }
+    else{
+        return true;
+    }
 }
 
