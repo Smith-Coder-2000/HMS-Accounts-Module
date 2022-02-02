@@ -17,8 +17,9 @@ function setCookie(email,password) {
 }
 
 function readCookie(cname){
-    if(document.cookie.valueOf("Mydetails")){
-        alert(document.cookie.valueOf(cname))
+    var details = getCookie(cname);
+    if(details!=""){
+        alert(details)
     }
     else{
         alert("no cookie available")
@@ -26,7 +27,9 @@ function readCookie(cname){
 }
 
 function deleteCookie(cname){
-    if(document.cookie.valueOf("Mydetails")){
+    var details = getCookie(cname);
+    console.log(details)
+    if(details!=undefined){
         document.cookie = cname+"=delete; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/";
         alert("Cookie deleted sucessfully")
     }
@@ -43,6 +46,24 @@ function setsession(email, password){
 function setlocal(email, password){
     localStorage.setItem("Email", email);
     localStorage.setItem("Password", password);
+}
+
+function getCookie(cName) {
+    const name = cName + "=";
+    const cDecoded = decodeURIComponent(document.cookie); //to be careful
+    if(cDecoded !="")
+    {
+        const cArr = cDecoded.split('; ');
+        let res;
+        cArr.forEach(val => {
+            if (val.indexOf(name) === 0) res = val.substring(name.length);
+        })
+        return res
+    }
+    else {
+        return "";
+    }
+    
 }
 
 function readLocal(){
