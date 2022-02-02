@@ -31,10 +31,10 @@ var span=document.getElementsByTagName('span');
         }
         else if(!regex1.test(email.value.trim())){
             $("#email").addClass("is-invalid")
-                $("#email").removeClass("is-valid")
-                span[2].innerText="invalid email";
-                span[2].className="invalid-feedback";
-                return false
+            $("#email").removeClass("is-valid")
+            span[2].innerText="invalid email";
+            span[2].className="invalid-feedback";
+            return false
         }
         else if(!regex3.test(password.value.trim()) && !isValidLength.test(password.value.trim())){
             $("#password").addClass("is-invalid")

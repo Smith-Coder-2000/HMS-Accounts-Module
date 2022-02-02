@@ -1,4 +1,7 @@
 
+body{
+    background-color: white;
+}
 
 div>.jumbotron{
     margin-top: 2%;
@@ -92,6 +95,7 @@ div.card-body{
     background-color: #ffece5;
     color: #575757;
 }
+
 
 @media(max-width: 1200px) {
     .vid{

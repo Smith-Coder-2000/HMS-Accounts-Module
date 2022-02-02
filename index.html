@@ -41,6 +41,17 @@
   </nav>
   <div class="container">
     <div class="jumbotron">
+      <select id="color" class="custom-select custom-select-sm" onchange="change()">
+        <option value="Change background color" hidden>Change background color</option>
+        <option value="#fff4db">color1</option>
+        <option value="#e1ffdb">color2</option>
+        <option value="#dbffff">color3</option>
+        <option value="#d2ccff">color4</option>
+        <option value="#b8b8b8">color5</option>
+        <option value="get the current color code">get the current color code</option>
+        <option value="default background color">default background color</option>
+      </select>
+      <span id="getcode"></span>
       <h1 class="display-4">Hospital Accounts</h1>
       <p class="lead">Welcome, Introducing ease of hospital invoice billing</p>
       <hr class="my-4">
@@ -100,5 +111,6 @@
     </div>
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+<script src="cookies.js"></script>
 </body>
 </html>

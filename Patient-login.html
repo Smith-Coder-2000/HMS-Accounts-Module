@@ -15,28 +15,6 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
-            Login
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="admin-login.html">Admin Login</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item active" href="Patient-login.html">Patient Login</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="staff-login.html">Staff Login</a>
-          </div>
-        </li>
-      </ul>
-      <ul class="navbar-nav navbar-right">
-        <li class="nav-item">
-          <a class="nav-link" href="Patient-login.html">Pay Bill</a>
-        </li>
-        <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
-    </ul>
-    </div>
     </div>
   </nav>
   <div class="container">
@@ -57,8 +35,20 @@
           <label class="form-check-label" for="exampleCheck1">Check me out</label>
         </div>
         <div class="form-group">
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary" onclick="store()">Submit</button>
         </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary" onclick="readCookie('Mydetails')">Read Cookie</button>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary" onclick="deleteCookie('Mydetails')">Delete Cookie</button>
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary" onclick="readLocal()">Read localStorage</button>
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary" onclick="readSession()">Read Session</button>
+            </div>
         <div class="form-group">
           <a href="/form_validation/patient-signup.html">Create an account</a>
         </div>
@@ -67,5 +57,6 @@
   </div>
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+<script src="/cookiesLocalSession.js"></script>
 </body>
 </html>
