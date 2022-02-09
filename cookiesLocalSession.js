@@ -29,7 +29,7 @@ function readCookie(cname){
 function deleteCookie(cname){
     var details = getCookie(cname);
     console.log(details)
-    if(details!=undefined){
+    if(details!=undefined && details!=false){
         document.cookie = cname+"=delete; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/";
         alert("Cookie deleted sucessfully")
     }
@@ -61,7 +61,7 @@ function getCookie(cName) {
         return res
     }
     else {
-        return "";
+        return false;
     }
     
 }
